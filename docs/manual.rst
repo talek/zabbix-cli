@@ -487,6 +487,7 @@ This command acknowledges an event
 
    acknowledge_events [eventIDs] 
                       [message]
+                      [close]
 
 Parameters:
 
@@ -495,6 +496,12 @@ Parameters:
 
 * **[message]:** Text of the acknowledgement message.
 
+* **[close]:** Whenever to close the provided eventIDs (on Zabbix version >= 4.0).
+
+  Values:
+
+  - false - (default) do not close events.
+  - true - close events (if possible).
 
 acknowledge_trigger_last_event
 ------------------------------
@@ -513,6 +520,12 @@ Parameters:
 
 * **[message]:** Text of the acknowledgement message.
 
+* **[close]:** Whenever to close events (on Zabbix version >= 4.0).
+
+  Values:
+
+  - false - (default) do not close events.
+  - true - close events (if possible).
 
 add_host_to_hostgroup
 ---------------------
