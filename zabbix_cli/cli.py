@@ -4714,6 +4714,7 @@ class zabbixcli(cmd.Cmd):
                                                       'triggerid': event['objectid'],
                                                       'clock': str(clock),
                                                       'age': str(age),
+                                                      'name': event['name'],
                                                       'acknowledged': zabbix_cli.utils.get_ack_status(int(event['acknowledged'])),
                                                       'value': zabbix_cli.utils.get_event_status(int(event['value']))}
 
@@ -4723,8 +4724,9 @@ class zabbixcli(cmd.Cmd):
                                                       '2': event['objectid'],
                                                       '3': str(clock),
                                                       '4': str(age),
-                                                      '5': zabbix_cli.utils.get_ack_status(int(event['acknowledged'])),
-                                                      '6': zabbix_cli.utils.get_event_status(int(event['value']))}
+                                                      '5': event['name'],
+                                                      '6': zabbix_cli.utils.get_ack_status(int(event['acknowledged'])),
+                                                      '7': zabbix_cli.utils.get_event_status(int(event['value']))}
 
             result_columns_key = result_columns_key + 1
 
@@ -4732,8 +4734,8 @@ class zabbixcli(cmd.Cmd):
         # Generate output
         #
         self.generate_output(result_columns,
-                             ['EventID', 'TriggerID', 'Last change', 'Age', 'Acknowledged', 'Status'],
-                             ['Last change', 'Age'],
+                             ['EventID', 'TriggerID', 'Last change', 'Age', 'Name', 'Acknowledged', 'Status'],
+                             ['Last change', 'Age', 'Name'],
                              ['EventID', 'TriggerID'],
                              FRAME)
 
@@ -6979,7 +6981,6 @@ class zabbixcli(cmd.Cmd):
     def get_version(self):
         """Get Zabbix-CLI version."""
         return zabbix_cli.__version__
-
 
 if __name__ == '__main__':
     cli = zabbix_cli()
