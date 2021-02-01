@@ -146,7 +146,7 @@ if __name__ == '__main__':
         # with log_file in the config file.
         #
 
-        logger.debug('**** Zabbix-CLI startet. ****')
+        logger.debug('**** Zabbix-CLI started. ****')
 
         #
         # Non-interactive authentication procedure
